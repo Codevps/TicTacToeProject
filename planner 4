@@ -1,0 +1,21 @@
+<<<include count in tictactoe game>>>
+<<<include 2 players, increment their count and a game of 3 matches>>>
+
+
+classes:
+x
+o 
+board (x and o)
+and hover of (x o and board x  and board o)
+show
+
+
+js
+presenting x and o simultaneously function
+hover function(simultaneously)
+winning combination function
+winner  statement function
+winner and draw 
+restart button functionality
+
+

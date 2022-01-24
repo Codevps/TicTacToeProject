@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TicTacToe</title>
+  </head>
+  <link rel="stylesheet" href="tictac.css" />
+  <script src="tictac.js" defer></script>
+  <body>
+    <!-- classes are for css && data- and id are for javascript -->
+    <div class="board" id="board">
+      <!-- columns in grid view  -->
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell right" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell right" data-cell></div>
+      <div class="cell bottom" data-cell></div>
+      <div class="cell bottom" data-cell></div>
+      <div class="cell right bottom" data-cell></div>
+    </div>
+    <!-- grid view -->
+    <div class="winning-message" id="winningMessage">
+      <div data-winning-message-text></div>
+      <br />
+      <button id="restartButton">Restart</button>
+    </div>
+  </body>
+</html>

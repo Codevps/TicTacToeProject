@@ -1,0 +1,140 @@
+/* universal css: */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+:root {
+  --cell-size: 200px;
+  --mark-size: calc(var(--cell-size) * 0.9);
+}
+body {
+  background: linear-gradient(to right, rgb(96, 244, 255), rgb(231, 96, 255));
+  margin: 0;
+}
+/* -------------------------------------------------------- */
+/* cell and board styling */
+.board {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto);
+}
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  background-color: white;
+  opacity: 0.7;
+  border-bottom: 6px solid black;
+  border-right: 6px solid black;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.cell.bottom {
+  border-bottom: rgb(255, 255, 255);
+  border-radius: 6px;
+}
+.cell.right {
+  border-right: white;
+  border-radius: 6px;
+}
+/* -------------------------------------------------------- */
+/* cell class x and o colors and board x and o effects*/
+.cell.x:active,
+.cell.o:active {
+  cursor: not-allowed;
+}
+.cell.x::before,
+.cell.x::after {
+  background-color: black;
+}
+.cell.o::before {
+  background: red;
+}
+.board.x .cell:not(.x):not(.o):hover::before,
+.board.x .cell:not(.x):not(.o):hover::after {
+  background-color: grey;
+}
+.board.o .cell:not(.x):not(.o):hover::before {
+  background-color: rgb(241, 159, 159);
+}
+/* -------------------------------------------------------- */
+/* cell class x and board x style*/
+.cell.x::before,
+.cell.x::after,
+.board.x .cell:not(.x):not(.o):hover::before,
+.board.x .cell:not(.x):not(.o):hover::after {
+  content: "";
+  position: absolute;
+  width: calc(var(--mark-size) * 0.15);
+  height: var(--mark-size);
+  border-radius: 52px;
+}
+.cell.x::before,
+.board.x .cell:hover::before {
+  transform: rotate(45deg);
+}
+.cell.x::after,
+.board.x .cell:hover::after {
+  transform: rotate(-45deg);
+}
+/* -------------------------------------------------------- */
+/* cell class o and board o style*/
+
+.cell.o::before,
+.cell.o::after,
+.board.o .cell:not(.x):not(.o):hover::before,
+.board.o .cell:not(.x):not(.o):hover::after {
+  content: "";
+  position: absolute;
+  border-radius: 90%;
+}
+
+.cell.o::before,
+.board.o .cell:not(.x):not(.o):hover::before {
+  width: calc(var(--mark-size) * 0.9);
+  height: calc(var(--mark-size) * 0.9);
+}
+.cell.o::after,
+.board.o .cell:not(.x):not(.o):hover::after {
+  width: calc(var(--mark-size) * 0.6);
+  height: calc(var(--mark-size) * 0.6);
+  background-color: white;
+}
+/* ------------------------------------------------------------------ */
+/* the restart button page styling */
+.winning-message {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: black;
+  opacity: 0.9;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 5rem;
+  flex-direction: column;
+}
+.winning-message button {
+  color: white;
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 6px;
+  padding: 15px 25px;
+  font-size: 3rem;
+}
+.winning-message.show {
+  display: flex;
+}
